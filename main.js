@@ -4,6 +4,24 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const likeBtn = document.querySelector('.like-glyph')
+const bodyObj = document.querySelector('body')
+
+
+bodyObj.addEventListener('click', event => {
+  if (event.target.textContent === EMPTY_HEART) {
+    event.target.textContent = FULL_HEART
+    event.target.className = 'activated-heart'
+    mimicServerCall("fake_call")
+      .then(console.log)
+      .catch(() => {
+        alert("Uh oh there is an error")
+      })
+  } else if (event.target.textContent === FULL_HEART) {
+      event.target.textContent = EMPTY_HEART
+      event.target.className = ""
+    } 
+})
 
 
 
